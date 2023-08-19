@@ -1,0 +1,116 @@
+.login-form {
+  max-width: 400px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+
+.login-form-button {
+  width: 99%;
+}
+
+.login {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* App.scss */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: rgb(17, 17, 17);
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.navbar-left a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 40px 30px;
+  transition: 0.2s ease-in;
+}
+.navbar-left a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.navbar-left a.active {
+  background-color: #92ccb1;
+  color: white;
+}
+.navbar-right {
+  padding: 20px 20px;
+  color: white;
+}
+.navbar-right .log-out {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile .pictures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile .pictures .coverpic {
+  position: relative;
+}
+.profile .pictures .profilepic {
+  position: absolute;
+  bottom: 0;
+  left: 10;
+}
+.profile .pictures .profilepic .profilepicimg {
+  background-color: red;
+  border-radius: 50%;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 0px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.214);
+}
+.home-container h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.layout {
+  max-width: 1250px;
+  margin: auto;
+}
+
+.register {
+  display: flex;
+  height: 80vh;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+}/*# sourceMappingURL=main.css.map */

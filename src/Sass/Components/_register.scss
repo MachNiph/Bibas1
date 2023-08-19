@@ -1,0 +1,19 @@
+.register {
+  display: flex;
+  height: 80vh;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+
+  .password-strength-checker {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .show-strength {
+      padding: 0px 40px;
+      width: 50%;
+    }
+  }
+}
