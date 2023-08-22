@@ -6,7 +6,6 @@ body {
 }
 
 .navbar {
-  background-color: rgb(17, 17, 17);
   overflow: hidden;
   display: flex;
   justify-content: space-between;
@@ -18,34 +17,33 @@ body {
 
     a {
       display: block;
-      color: white;
+      color: rgb(17, 17, 17);
       text-align: center;
       text-decoration: none;
       padding: 40px 30px;
       transition: 0.2s ease-in;
 
       &:hover {
-        background-color: #ddd;
-        color: black;
+        text-decoration: underline;
       }
 
       &.active {
-        background-color: #92ccb1;
-        color: white;
+        color: rgb(51, 53, 53);
+        text-decoration: underline;
       }
     }
   }
 
   &-right {
     padding: 20px 20px;
-    color: white;
+
     .log-out {
       display: flex;
       align-items: center;
       gap: 20px;
 
       &:hover {
-        color: rgb(204, 214, 214);
+        color: rgb(51, 53, 53);
         cursor: pointer;
       }
     }

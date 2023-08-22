@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-// import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 import { auth } from "../firebase-config";
 import { database } from "../firebase-config";
 
@@ -145,144 +144,148 @@ const Register = () => {
 
   return (
     <div className="register">
-      <Form
-        {...formItemLayout}
-        form={form}
-        name="register"
-        onFinish={onFinish}
-        style={{
-          maxWidth: 600,
-        }}
-        scrollToFirstError
-      >
-        <Form.Item
-          name="username"
-          label="Username"
-          rules={[
-            {
-              required: true,
-              message: "Please input your username!",
-            },
-          ]}
+      <div className="register-left"></div>
+      <div className="register-right">
+        <h1> Register Its Free</h1>
+        <Form
+          {...formItemLayout}
+          form={form}
+          name="register"
+          onFinish={onFinish}
+          style={{
+            maxWidth: 600,
+          }}
+          scrollToFirstError
         >
-          <Input maxLength={20} />
-        </Form.Item>
-
-        <Form.Item
-          name="email"
-          label="E-mail"
-          rules={[
-            {
-              type: "email",
-              message: "Please enter a valid email..",
-            },
-            {
-              required: true,
-              message: "Please input your E-mail!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name="phone"
-          label="Phone Number"
-          rules={[
-            {
-              required: true,
-              message: "Please input your phone number!",
-            },
-            {
-              pattern: /^[0-9]+$/,
-
-              message: "Please enter a valid phone number",
-            },
-          ]}
-        >
-          <Input
-            maxLength={10}
-            addonBefore={prefixSelector}
-            style={{
-              width: "100%",
-            }}
-          />
-        </Form.Item>
-
-        <Form.Item
-          name="gender"
-          label="Gender"
-          rules={[
-            {
-              required: true,
-              message: "Please select gender!",
-            },
-          ]}
-        >
-          <Select placeholder="select your gender">
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
-            <Option value="other">Other</Option>
-          </Select>
-        </Form.Item>
-
-        <Form.Item
-          name="password"
-          label="Password"
-          rules={[
-            {
-              required: true,
-              message: "Please input your password!",
-            },
-            {
-              min: 6,
-              message: "Password must be at least 6 characters long",
-            },
-          ]}
-          hasFeedback
-        >
-          <Input.Password />
-        </Form.Item>
-
-        <Form.Item
-          name="confirm"
-          label="Confirm Password"
-          dependencies={["password"]}
-          hasFeedback
-          rules={[
-            {
-              required: true,
-              message: "Please confirm your password!",
-            },
-            ({ getFieldValue }) => ({
-              validator(_, value) {
-                if (!value || getFieldValue("password") === value) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(
-                  new Error("The new password that you entered do not match!")
-                );
+          <Form.Item
+            name="username"
+            label="Username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
               },
-            }),
-          ]}
-        >
-          <Input.Password />
-        </Form.Item>
+            ]}
+          >
+            <Input maxLength={20} />
+          </Form.Item>
 
-        <div className="password-strength-checker">
-          <Form.Item className="show-strength">
-            <PasswordStrengthChecker
-              password={form.getFieldValue("password")}
+          <Form.Item
+            name="email"
+            label="E-mail"
+            rules={[
+              {
+                type: "email",
+                message: "Please enter a valid email..",
+              },
+              {
+                required: true,
+                message: "Please input your E-mail!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            name="phone"
+            label="Phone Number"
+            rules={[
+              {
+                required: true,
+                message: "Please input your phone number!",
+              },
+              {
+                pattern: /^[0-9]+$/,
+
+                message: "Please enter a valid phone number",
+              },
+            ]}
+          >
+            <Input
+              maxLength={10}
+              addonBefore={prefixSelector}
+              style={{
+                width: "100%",
+              }}
             />
           </Form.Item>
-        </div>
 
-        <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit" onClick={reg}>
-            Register
-          </Button>
-        </Form.Item>
-      </Form>
+          <Form.Item
+            name="gender"
+            label="Gender"
+            rules={[
+              {
+                required: true,
+                message: "Please select gender!",
+              },
+            ]}
+          >
+            <Select placeholder="select your gender">
+              <Option value="male">Male</Option>
+              <Option value="female">Female</Option>
+              <Option value="other">Other</Option>
+            </Select>
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            label="Password"
+            rules={[
+              {
+                required: true,
+                message: "Please input your password!",
+              },
+              {
+                min: 6,
+                message: "Password must be at least 6 characters long",
+              },
+            ]}
+            hasFeedback
+          >
+            <Input.Password onChange={(e) => e.target.value} />
+          </Form.Item>
+
+          <Form.Item
+            name="confirm"
+            label="Confirm Password"
+            dependencies={["password"]}
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: "Please confirm your password!",
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue("password") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error("The new password that you entered do not match!")
+                  );
+                },
+              }),
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
+
+          <div className="password-strength-checker">
+            <Form.Item className="show-strength">
+              <PasswordStrengthChecker
+                password={form.getFieldValue("password")}
+              />
+            </Form.Item>
+          </div>
+
+          <Form.Item {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit" onClick={reg}>
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ export default function Home() {
           console.log(data.results);
         });
     } else {
-      setImagesData([]); // Clear imagesData when searchQuery is empty
+      setImagesData([]); 
     }
   }, [searchQuery]);
   let feedHTML = null;
@@ -34,7 +34,7 @@ export default function Home() {
           hoverable
           style={{
             width: "500px",
-            marginBottom: "15px", // Add some spacing between cards
+            marginBottom: "15px",
           }}
           cover={<img alt="example" src={`${regular}`} />}
         >

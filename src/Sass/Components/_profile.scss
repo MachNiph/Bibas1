@@ -1,24 +1,66 @@
 .profile {
- 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
 
-  .pictures {
+  // .pictures {
+  //   .coverpic {
+  //     position: relative;
+  //     object-fit: cover;
+  //     width: 100%;
+  //     height: 400px;
+  //     overflow: hidden;
+  //   }
+
+  //   .profilepic {
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 40;
+
+  //     .profilepicimg {
+  //       background-color: red;
+  //       border-radius: 50%;
+  //     }
+  //   }
+  // }
+
+  .profile-info {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
     justify-content: center;
+    box-shadow: 1px 2px 7px rgb(169, 169, 169);
+    width: 50%;
+    height: 50%;
 
-    .coverpic {
-      position: relative;
+    h1 {
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      color: gray;
     }
 
-    .profilepic {
-      position: absolute;
-      bottom: 0;
-      left: 10;
+    .profile-data {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 1px 2px 7px rgb(169, 169, 169);
+      color: gray;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      width: 50%;
+      height: 100%;
+      padding: 40px;
 
-      .profilepicimg {
-        background-color: red;
-        border-radius: 50%;
+      div {
+        width: 100%;
+        height: 10px;
       }
+
+    
     }
   }
 }
